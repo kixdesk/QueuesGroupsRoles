@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <CVS>$Id$</CVS>
+    <Name>QueuesGroupsRoles</Name>
+    <Version>4.99.80</Version>
+    <Framework>5.0.x</Framework>
+    <Vendor>c.a.p.e. IT GmbH</Vendor>
+    <URL>http://www.cape-it.de/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Description Lang="en">Provides import and export functions for queues, groups and roles.</Description>
+    <BuildDate>?</BuildDate>
+    <BuildHost>?</BuildHost>
+    <Filelist>
+<File Permission="644" Location="Kernel/Config/Files/QueuesGroupsRoles.xml"/>
+<File Permission="644" Location="Kernel/Language/de_QueuesGroupsRoles.pm"/>
+<File Permission="644" Location="Kernel/Modules/AdminQueuesGroupsRoles.pm"/>
+<File Permission="644" Location="Kernel/Output/HTML/Templates/Standard/AdminQueuesGroupsRoles.tt"/>
+<File Permission="644" Location="Kernel/System/Console/Command/QueuesGroupsRoles/Download.pm"/>
+<File Permission="644" Location="Kernel/System/Console/Command/QueuesGroupsRoles/Upload.pm"/>
+<File Permission="644" Location="Kernel/System/QueuesGroupsRoles.pm"/>
+<File Permission="644" Location="doc/CHANGES_QueuesGroupsRoles.md"/>
+<File Permission="644" Location="doc/en/USAGE_QueuesGroupsRoles.html"/>
+<File Permission="644" Location="doc/en/USAGE_QueuesGroupsRoles.pod"/>
+<File Permission="644" Location="var/QueuesGroupsRoles.csv"/>
+<File Permission="644" Location="var/packagesetup/QueuesGroupsRoles.pm"/>
+
+    </Filelist>
+    <DatabaseInstall>
+    </DatabaseInstall>
+    <DatabaseReinstall>
+    </DatabaseReinstall>
+    <DatabaseUpgrade>
+    </DatabaseUpgrade>
+    <DatabaseUninstall>
+    </DatabaseUninstall>
+    <CodeInstall Type="post"><![CDATA[
+    my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+    $Kernel::OM->Get($CodeModule)->CodeInstall();
+    ]]>
+    </CodeInstall>
+    <CodeReinstall Type="post"><![CDATA[
+    my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+    $Kernel::OM->Get($CodeModule)->CodeReinstall();
+    ]]>
+    </CodeReinstall>
+    <CodeUpgrade Type="post"><![CDATA[
+    my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+    $Kernel::OM->Get($CodeModule)->CodeUpgrade();
+    ]]>
+    </CodeUpgrade>
+    <CodeUninstall Type="pre"><![CDATA[
+    my $CodeModule = 'var::packagesetup::' . $Param{Structure}->{Name}->{Content};
+    $Kernel::OM->Get($CodeModule)->CodeUninstall();
+    ]]>
+    </CodeUninstall>
+    <IntroInstall Type="pre" Title="Install Information" Lang="en">
+        <![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to install the OTRS module QueuesGroupsRoles.<br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroInstall>
+    <IntroInstall Type="post" Title="Installation Information" Lang="en">
+        <![CDATA[
+        <br/>
+        The package has been installed.<br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroInstall>
+    <IntroUpgrade Type="pre" Title="Upgrade Information" Lang="en">
+        <![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to upgrade the OTRS module QueuesGroupsRoles.<br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroUpgrade>
+    <IntroUninstall Type="pre" Title="Uninstallation Information" Lang="en">
+        <![CDATA[
+        <br/>
+        <strong>WELCOME</strong>
+        <br/>
+        <br/>
+        You are about to UNINSTALL the OTRS module QueuesGroupsRoles.<br/>
+        <br/>
+        <br/>
+        c.a.p.e. IT ...easy.<br/>
+        <br/>
+    ]]></IntroUninstall>
+</otrs_package>
